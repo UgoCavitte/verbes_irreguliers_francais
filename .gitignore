@@ -1,6 +1,8 @@
 # Custom
 google-services.json
 firebase.json
+service-account-firebase.json
+service-account-google-play.json
 .env
 windows/
 ios/
