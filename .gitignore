@@ -16,6 +16,7 @@ android/local.properties
 .dart_tool/
 .flutter-plugins/
 .flutter-plugins-dependencies/
+.vscode
 AndroidManifest.xml
 .metadata
 pubspec.lock
