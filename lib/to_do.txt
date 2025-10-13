@@ -1,0 +1,29 @@
+GENERAL
+
+# ajouter un système de progression d'apprentissage
+# ajouter des exercices d'apprentissage
+# permettre la double orthographe (ajouter "s'asseoir")
+# réguler l'ordre des temps entre eux lors de l'affichage des formes d'un verbe
+
+------------------------
+
+Verbes à ajouter :
+S'asseoir
+Envoyer, revoir...
+
+------------------------
+
+EXERCICES
+
+# lors de la génération de formes pour un exercice, remplacer l'aléatoire (limité à 50 répétitions) par la logique (en transmettant la personne et le temps ?)
+# tf -> demander le focus
+
+Exercice général :
+# faire des corrigés à part ?
+
+Exercices sur les verbes :
+# relier personnes et formes
+# compléter la terminaison
+
+Exercices sur les temps :
+# associer les formes aux temps ? Mais l'utilisateur choisit un temps précis, alors ce n'est pas possible de faire ça

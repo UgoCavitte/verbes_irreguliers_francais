@@ -1,0 +1,278 @@
+
+TERMINER EN AJOUTANT LE MODELE DES TEXTFIELDS BLEUS
+
+-----
+
+Trucs à ajouter :
+# vérifier le premium pour l'affichage de la pub à un endroit centralisé
+
+IDEES :
+
+
+-----
+
+IMPORTANT
+Impossible de mettre des bannières dans le programme d'apprentissage à cause de son système. Tous les widgets sont créés à l'avance et, ainsi, impossible pour le provider d'update la page
+
+20251013
+# possibilité de changer la police d'écriture, mais requiert un redémarrage de l'application
+# ajout d'une bannière de publicité dans l'onglet "apprendre"
+
+1.3.1 (20250902)
+# support du nouveau Google Sign In
+# ajout des formes du subjonctif pour les verbes en "-prendre" et suppression de "résoudre" dans le module sur le subjonctif (blocage des étapes 7, 9 et 12)
+
+1.3.1 (20250812)
+# changement du gradient "bleu clair-gris" pour "bleu foncé-bleu clair"
+# ajout de ce gradient à la page d'apprentissage
+# la ligne bleue est désormais rouge sur la page d'apprentissage
+# changement du design du bouton "révision quotidienne" pour un gradient "rouge-orange"
+
+1.3.0
+# ajout de lettres par bloc dans l'onglet "consulter"
+# changement du design des boutons infinitif
+# début du dropdown menu qui permet de changer l'ordre et les catégories de présentation des verbes
+
+1.2.7
+# amélioration de la collecte du consentement de l'utilisateur pour la RGPD
+# provider pour l'affichage des bannières de pub
+# ajout de bannière sur les pages :
+    - affichage de la conjugaison d'un verbe
+    - stats
+    - menu révision
+    - consulter
+
+1.2.6+30
+# ajout du verbe "s'asseoir"
+# réduction des limites :
+    - étapes classiques : 5 -> 3
+    - révisions quotidiennes : 4 -> 1
+
+1.2.6+26
+# ajout du verbe "envoyer"
+
+1.2.6+23
+# correction de la hauteur des boutons des conjugaisons mélangées
+# changement du côté des flèches dans l'exercice avec les conjugaisons mélangées
+# optimisation de l'écran de chargement pour éviter de construire quinze écrans de chargement différents
+# correction du système de vérification des formes entrées par l'utilisateur pour permettre de n'entrer qu'une seule des plusieurs formes possibles de certains verbes ("céder"...)
+# ajout de publicités dans toutes les activités du programme d'apprentissage
+# correction de la vérification du chargement des pubs interstitielles pour éviter les écrans gris
+
+1.2.5+21
+# correction de différents problèmes concernant :
+    - l'affichage de la publicité ;
+    - la réception des notifications.
+
+1.2.3+16
+
+20250429
+# ajout d'exercices de "trouve parmi" dans l'apprentissage
+# ajout de pubs interstitielles entre les verbes dans les étapes d'apprentissage
+
+1.2.3+15
+
+20250427
+# suppression des flèches pour les personnes dans l'exercice sur la conjugaison mélangée
+# ajout des couleurs en fonction de la réponse pour le trouve parmi
+
+20250423
+# ajout de l'adresse mail à la base de données
+# début de correction de la colonne des personnes dans l'exercice avec la conjugaison mélangée
+
+20250422
+# mise en place de la database
+
+20250421
+# ajout du système de Sign-in via Google
+
+20250420
+# abandon du backend
+# les points de chargement sont désormais rouges
+# ajout des limites pour la version non premium :
+    - limite de 5 étapes classiques ;
+    - limite de 4 révisions quotidiennes.
+# ajout des privilèges pour la version premium :
+    - ignore les limites ;
+    - n'affiche pas les pubs.
+
+20250419
+# création d'une key pour essayer de faire fonctionner la bannière publicitaire
+# abandon de la page de login
+
+20250418
+# début de la page de login
+
+20250417
+# ajout d'une page de chargement au lancement de l'application lors de l'initialisation de la boutique
+# déplacement de l'initialisation de la boutique au lancement de l'appli plutôt qu'à l'ouverture de l'onglet
+
+20250416
+# ajout d'une boutique fonctionnelle
+
+Version 1.1.0+9
+
+20250413
+# ajout d'un message de prévention pour la version Web lorsque l'utilisateur ouvre la page d'apprentissage
+
+20250412
+# loading screen avec des points (bleus)
+# renommage du bouton de révision générale pour "révisions quotidiennes"
+
+20250410
+# ajout du subjonctif de "boire"
+# ajout du focus automatique pour les questions de l'onglet apprentissage et de l'onglet révision
+# déplacement de la pub après l'écran de fin des activités de l'onglet apprentissage pour éviter de cacher l'animation
+# ajout d'une variable qui gère la publicité en bannière pour éviter les situations où Google bloque à cause d'un délai trop court
+# ajout d'une page avec les stats de l'utilisateur
+# page ancienne révision -> remis les verbes dans l'ordre alphabétique dans les listes
+
+20250409
+# ajout des publicités à la fin des étapes d'apprentissage, de révision et de révision générale
+
+20250408
+# ajout du skip des révisions générales en cas de participe
+# gestion de la mémoire complète
+# ajout d'un écran de chargement le temps que les données en mémoire soient lues
+
+20250407
+# changement de la page d'accueil : elle a désormais un champ de recherche et les boutons sont affichés en fonction du résultat
+# création de la structure de la classe de gestion de la mémoire
+# fonctionnalités d'enregistrement et de lecture en mémoire des modules et de leurs étapes
+# suppression de la page intermédiaire de l'ancien menu de révision
+
+20250405
+# correction entière de tous les problèmes avec la barre de progression
+# changement de la logique de présentation des modules : le module ouvert est celui sur lequel l'utilisateur est en train de travailler
+# le magasin a été renommé en boutique
+
+20250404
+# création de constructeurs de redirection pour les questions qui sont répétées en cas de faute
+# correction de l'affiche des personnes à l'impératif pour être plus compréhensible
+# suppression du mélange des personnes dans l'exercice de remise en ordre
+
+20250403
+# suppression de l'affichage de la barre de progression quand une étape est terminée
+# ajout de la barre de progression pour les révisions générales
+# ajout d'un statut lorsque l'exercice "trouve parmi" est rempli correctement (on ne comprenait pas quand on passait à l'étape suivante)
+# ajout d'une page finale après une révision générale
+# ajout d'une page temporaire pour le magasin
+
+20250401
+# correction des problèmes avec l'impératif (taille + correction de l'affichage des personnes)
+# correction du problème qui faisait que la route devenait de plus en plus grande au fur et à mesure des étapes
+# réarrangement du système d'apprentissage et de révision pour que tout soit géré dans les moteurs pour favoriser la réutilisabilité
+# création de la plupart du système de révision
+
+20250331
+# raccourcissement des grosses étapes de révision
+# correction de la non-considération des verbes impersonnels
+
+20250330
+# fin du module sur le subjonctif
+# la page d'apprentissage ouvre automatique le premier module non terminé
+# ajout d'un message de confirmation quand l'utilisateur veut sortir d'une étape (apprentissage et révision)
+# correction du problème qui faisait que les expansion tiles ne se fermaient pas quand le module qu'elles contiennent était terminé
+# ajout d'une classe de statistiques
+# création entière du module sur le participe présent
+
+20250329
+# fin du module sur le participe passé
+# création du module sur le subjonctif
+
+20250328
+# fin du module sur le futur simple
+# fin du module sur le présent 3 -> le présent est intégralement terminé
+# neuf premières étapes sur les participes passés
+# ajout du pourcentage de complétion du programme entier sur la page générale d'apprentissage
+
+20250327
+# création de deux listes actives (restera à les sauvegarder en mémoire) :
+    - liste des verbes appris ;
+    - liste des verbes révisés.
+# ajout du bouton "révision" sur la page d'apprentissage (non fonctionnel)
+
+20250326
+# création de l'élément "Barre de progression"
+# ajout de la barre de progression aux activités d'apprentissage (restent les activités de révision)
+# ajout de la barre de progression aux activités de révision
+
+20250325
+# fin du module 3 sur le présent
+
+20250323
+# les étapes faites ont maintenant une couleur de fond pour les distinguer plus facilement
+
+20250322
+# transfert de "résoudre" au sous-groupe -oudre
+# fin du module 2 sur le présent
+# création du fichier du module sur les participes passés
+# création du fichier du module 3 sur le présent
+# création complète du module sur l'imparfait
+
+20250320
+# les étapes de révision sont désormais entièrement fonctionnelles
+# module sur l'impératif achevé
+# module 1 sur le présent achevé
+# début du module 2 sur le présent
+
+20250318
+# animation de l'icône check à la fin des étapes
+# adaptation des questions pour fonctionner avec les étapes de révision
+# exercice "Trouver parmi" :
+    - création du moteur ;
+    - génération de la bonne forme et des mauvaises formes.
+
+20250317
+# exercice avec des questions : totalement terminé
+
+20250316
+# exercice qui demande d'aligner les formes : totalement terminé
+    - intégration du système d'index ;
+    - création du système de validation.
+# exercice avec des questions
+    - création du fichier et de sa structure ;
+    - création des questions, ce qui inclue des questions sur le verbe étudié et des questions sur les verbes vus plus tôt dans l'étape.    
+
+20250315
+# exercice qui demande d'aligner les formes :
+    - correction de la largeur des colonnes de l'exo qui demande d'aligner les formes ;
+    - premier essai du système qui doit réarranger l'ordre des formes (à corriger, voir les notes laissées dans le fichier en question).
+
+20250314
+# début de la première page d'exercice qui demande d'aligner des formes :
+    - création des éléments avec leurs boutons (non fonctionnels) ;
+    - création du layout (sans le bouton de validation).
+
+20250313
+# création de la page d'introduction des étapes d'apprentissage À TERMINER
+# création de la page finale des étapes d'apprentissage
+# création de la page d'étape d'apprentissage qui présente la conjugaison du verbe en question
+# rectifiction du nom de la constante de padding général pour "paddingGeneral"
+
+20250311
+# création du menu d'apprentissage
+# création du titre du menu d'apprentissage
+# création du widget expensible des modules. Celui-ci :
+    - met à jour sa barre de progression au fur et à mesure des étapes remplies ou cochées ;
+    - permet de cocher toutes les étapes du module.
+# création du widget linéaire des étapes. Il permet de :
+    - cocher l'étape au cas où l'étudiant aurait appris ces verbes hors de l'application ;
+    - lancer la découverte ou la révision de l'étape (fonctionnalités à ajouter).
+
+20250310
+# ajout des fichiers : programme, module, etape
+# commencement du module 1 sur le présent
+# suppression du type Apprentissage dans les deux versions de l'appli
+# ajout du verbe "partir"
+
+/////////////////// 1.0.0+8
+
+20250308
+# couleurs 0xff00049f et 0xffff3131
+
+
+/////////////////// 1.0.0+7
+
+20250108
+# fichier "search_field.dart" -> permet de chercher en mettant ou non les accents
