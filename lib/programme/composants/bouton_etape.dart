@@ -1,5 +1,6 @@
 import 'package:confirm_dialog/confirm_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:verbes_irreguliers_francais/animations/anim_slide_right.dart';
 import 'package:verbes_irreguliers_francais/data/data_user.dart';
 import 'package:verbes_irreguliers_francais/data/gestion_memoire.dart';
 import 'package:verbes_irreguliers_francais/main.dart';
@@ -73,17 +74,11 @@ class _BoutonEtapeState extends State<BoutonEtape> {
             (Route<dynamic> route) => false);
       }
     } else if (widget.etape.type == TypeEtape.apprentissage) {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => MoteurApprentissage(
-                  etape: widget.etape, module: widget.module)));
+
+      Navigator.push(context, AnimSlideRight(page: MoteurApprentissage(etape: widget.etape, module: widget.module)));
+
     } else if (widget.etape.type == TypeEtape.revision) {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) =>
-                  MoteurRevision(etape: widget.etape, module: widget.module)));
+      Navigator.push( context, AnimSlideRight(page: MoteurRevision(etape: widget.etape, module: widget.module)));
     }
   }
 
