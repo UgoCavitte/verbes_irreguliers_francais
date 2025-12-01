@@ -1,4 +1,4 @@
-# verbes_irreguliers_francais
+# Verbes irréguliers francais
 
 This app was made for foreign students willing to study French language. It includes several functionalities to simplify irregular verbs learning.
 
