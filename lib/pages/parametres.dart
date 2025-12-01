@@ -4,11 +4,11 @@ import 'package:provider/provider.dart';
 import 'package:verbes_irreguliers_francais/data/constantes.dart';
 import 'package:verbes_irreguliers_francais/data/gestion_memoire.dart';
 import 'package:verbes_irreguliers_francais/data/textes_menus.dart';
+import 'package:verbes_irreguliers_francais/initialization_helper.dart';
 import 'package:verbes_irreguliers_francais/types/types_boutons.dart';
 import 'package:verbes_irreguliers_francais/types/types_containers.dart';
 
 import '../data/data_pub.dart';
-import '../initialize_screen.dart';
 import '../main.dart';
 
 enum PlusOuMoins {moins, plus}
@@ -83,13 +83,8 @@ class _ParametresState extends State<Parametres> {
           action: () {
             ConsentInformation.instance.reset();
             dejaCharge = false;
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const InitializeScreen(
-                            targetWidget: HomePage(
-                          index: 0,
-                        ))));
+            final initializationHelper = InitializationHelper();
+            initializationHelper.initialize();
           }),
     ));
 
