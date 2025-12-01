@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:verbes_irreguliers_francais/data/gestion_memoire.dart';
 import 'package:verbes_irreguliers_francais/data/textes_introduction.dart';
 import 'package:verbes_irreguliers_francais/firebase/firebase_notifier.dart';
-import 'package:verbes_irreguliers_francais/initialize_screen.dart';
+import 'package:verbes_irreguliers_francais/initialization_helper.dart';
 import 'package:verbes_irreguliers_francais/pages/boutique.dart';
 import 'package:verbes_irreguliers_francais/pages/consulter.dart';
 import 'package:verbes_irreguliers_francais/pages/reviser_menu.dart';
@@ -148,15 +148,26 @@ class HomePage extends StatefulWidget {
   State<StatefulWidget> createState() => _HomePageState();
 }
 
+enum AppLoadingState {
+  initial,
+  boutiqueLoading,
+  dataLoading,
+  gdprLoading,
+  initialized,
+}
+
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   PageController _pageController = PageController();
+  AppLoadingState _loadingState = AppLoadingState.initial;
+  bool _hasStartedInitialization = false;
 
   @override
   void initState() {
     super.initState();    
     _selectedIndex = widget.index;
     _pageController = PageController(initialPage: _selectedIndex);
+    _initializeAllData();
   }
 
   @override
@@ -165,65 +176,62 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
+  Future<void> _initializeAllData() async {
+    if (_hasStartedInitialization) return;
+    _hasStartedInitialization = true;
+
+    // 1a. Initialise la boutique et Firebase
+    if (mounted) setState(() => _loadingState = AppLoadingState.boutiqueLoading);
+    
+    await BoutiqueState.initialize();
+
+    // 1b. FCM setup
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
+    await messaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
+
+    // 2. Charger les données inscrites en mémoire
+    if (mounted) setState(() => _loadingState = AppLoadingState.dataLoading);
+
+    await DataInitialisation.initialiserData();
+
+
+    // L'utilisateur n'a pas encore consenti ?
+    // This doesn't show any loading screen to make the app feel faster
+    if (!dejaCharge) {
+      final initializationHelper = InitializationHelper();
+      initializationHelper.initialize();
+    }  
+
+    // 3. Mark as complete
+    if (mounted) setState(() => _loadingState = AppLoadingState.initialized);
+  }
+
   @override
   Widget build(BuildContext context) {
 
     context.watch<ProviderPolice>();
 
-    // Charger les données inscrites en mémoire
-
-    // Initalise la boutique et Firebase
-    if (!initialisationBoutique) {
-      BoutiqueState.initialize().then((_) async {
-        FirebaseMessaging messaging = FirebaseMessaging.instance;
-
-        await messaging.requestPermission(
-          alert: true,
-          announcement: false,
-          badge: true,
-          carPlay: false,
-          criticalAlert: false,
-          provisional: false,
-          sound: true,
-        );
-
-        setState(() {
-          initialisationBoutique = true;
-        });
-      });
-
-      return LoadingLancement.screen(EtapeLancement.boutique);
-    }
-
-    if (!DataInitialisation.initialisationFaite) {
-      DataInitialisation.initialiserData().then((_) {
-        setState(() {
-          DataInitialisation.initialisationFaite = true;
-        });
-      });
-
-      return LoadingLancement.screen(EtapeLancement.memoire);
-    }
-
-    //////////////////////////////////////////////////////////////////////
-    /// TOUT LE BORDEL POUR LOCALISER L'UTILISATEUR ETC
-    //////////////////////////////////////////////////////////////////////
-
-    else {
-      // L'utilisateur n'a pas encore consenti ?
-      if (!dejaCharge) {
-        return const MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: InitializeScreen(
-              targetWidget: HomePage(
-            index: 0,
-          )),
-        );
+    // Check loading state and display correct loading screen
+    if (_loadingState != AppLoadingState.initialized) {
+      if (_loadingState == AppLoadingState.boutiqueLoading) {
+        return LoadingLancement.screen(EtapeLancement.boutique);
+      } else if (_loadingState == AppLoadingState.dataLoading) {
+        return LoadingLancement.screen(EtapeLancement.memoire);
       }
+      // Return a basic screen if in the 'initial' state briefly
+      return const Center(child: CircularProgressIndicator()); 
+    }
 
-      //////////////////////////////////////////////////////////////////////
-      /// FIN
-      //////////////////////////////////////////////////////////////////////
+    
+    else {
 
       return Scaffold(
           appBar: AppBar(
@@ -300,7 +308,7 @@ abstract class LoadingLancement {
   static Scaffold screen(EtapeLancement etape) {
     String texte = "";
     int ordre = 0;
-    const int dotsCount = 3;
+    const int dotsCount = 2;
 
     switch (etape) {
       case EtapeLancement.boutique:
@@ -310,10 +318,6 @@ abstract class LoadingLancement {
       case EtapeLancement.memoire:
         texte = "Lecture des données inscrites en mémoire...";
         ordre = 1;
-        break;
-      case EtapeLancement.gdpr:
-        texte = "Vérification de l'application du RGPD...";
-        ordre = 2;
         break;
     }
 
@@ -348,4 +352,4 @@ class ProviderPolice with ChangeNotifier {
   }
 }
 
-enum EtapeLancement { boutique, memoire, gdpr }
+enum EtapeLancement { boutique, memoire }
