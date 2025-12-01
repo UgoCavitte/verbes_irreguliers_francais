@@ -25,7 +25,7 @@ void main() async {
 
   memoire = SharedPreferencesAsync();
 
-  await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: "assets/.env");
 
   // Charge la taille de police
   await GestionMemoire.chargerTaillePolice();
