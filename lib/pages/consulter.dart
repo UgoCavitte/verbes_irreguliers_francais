@@ -257,12 +257,23 @@ class _ConsulterState extends State<Consulter> {
         // Ajout de la grosse lettre
         toReturn.add(Padding(
             padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-            child: Text(
-              lettreEnCours,
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                  fontSize: 32, fontWeight: FontWeight.bold, color: bleu),
-            )));
+            child:
+              SizedBox(
+                width: 16,
+                child:
+                  ShaderMask(
+                  shaderCallback: (bounds) => gradientRougeRougeClair.createShader(Rect.fromLTWH(0, 0, 16.0, bounds.height)),
+                  blendMode: BlendMode.srcIn,
+                  child:
+                    Text(
+                      lettreEnCours,
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          fontSize: 36, fontWeight: FontWeight.bold, color: Colors.red),
+                    ),
+                  )),
+            
+            ));
       }
 
       // Ajout du bouton
