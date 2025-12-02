@@ -499,18 +499,20 @@ class _ReviserMenuState extends State<ReviserMenu> {
 
     return Padding(
       padding: paddingGeneral,
-      child: ListView(shrinkWrap: false, children: [
-               Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+      child: Scrollbar(
+              thumbVisibility: true,
+              child: ListView(shrinkWrap: false, children: [
+                Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
 
-              children: [
-              ...toShow,
-              Padding(
-                padding: paddingGeneral,
-                child: boutonValider,
-              )])
+                children: [
+                ...toShow,
+                Padding(
+                  padding: paddingGeneral,
+                  child: boutonValider,
+                )])
             
-      ]),
+      ])),
     );
   }
 
