@@ -177,6 +177,7 @@ class _ConsulterState extends State<Consulter> {
           DropdownButton(
               alignment: AlignmentDirectional.centerEnd,
               underline: SizedBox(),
+              dropdownColor: Colors.white,
               items: itemsTemps,
               value: selectorTemps,
               onChanged: (selected) {
@@ -190,6 +191,7 @@ class _ConsulterState extends State<Consulter> {
           DropdownButton(
               alignment: AlignmentDirectional.centerEnd,
               underline: SizedBox(),
+              dropdownColor: Colors.white,
               items: itempsSousGroupes,
               value: selectorSousGroupe,
               onChanged: (selected) {
