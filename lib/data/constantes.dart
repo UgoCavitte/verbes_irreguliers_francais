@@ -24,7 +24,7 @@ const int vertB = 80;
 const LinearGradient gradientBleuBleuClair =
     LinearGradient(colors: [bleu, bleuClair]);
 const LinearGradient gradientRougeRougeClair =
-    LinearGradient(colors: [rouge, orange]);
+    LinearGradient(colors: [rouge, orange], begin: AlignmentGeometry.centerLeft, end: Alignment.centerRight);
 
 // BottomNavyBar
 const Color couleurBottomNavyBarFond = Colors.white;
