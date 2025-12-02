@@ -41,7 +41,16 @@ class ReviserMenuNv extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              
+              Container(
+                padding: paddingGeneral,
+                color: Colors.white,
+                child: Text(
+                  "Révision personnalisée",
+                  style: TextStyle(
+                      fontSize: taillePolice * 1.2, fontWeight: FontWeight.bold, color: bleu),
+                  textAlign: TextAlign.center,
+                ),
+              ),
           Expanded(child: ReviserMenu()),
           if (ad != null)
             SizedBox(
