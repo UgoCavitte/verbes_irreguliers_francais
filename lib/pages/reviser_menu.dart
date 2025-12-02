@@ -51,7 +51,13 @@ class ReviserMenuNv extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-          Expanded(child: ReviserMenu()),
+
+              Expanded(child: Container(
+                decoration: BoxDecoration(border: Border.all(color: rouge)),
+                margin: paddingGeneral,
+                child:
+                  ReviserMenu())),
+
           if (ad != null)
             SizedBox(
                 height: 70,
@@ -494,7 +500,7 @@ class _ReviserMenuState extends State<ReviserMenu> {
     return Padding(
       padding: paddingGeneral,
       child: ListView(shrinkWrap: false, children: [
-              Column(
+               Column(
               crossAxisAlignment: CrossAxisAlignment.center,
 
               children: [
