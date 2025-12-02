@@ -41,7 +41,8 @@ class ReviserMenuNv extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-          ReviserMenu(),
+              
+          Expanded(child: ReviserMenu()),
           if (ad != null)
             SizedBox(
                 height: 70,
@@ -477,28 +478,25 @@ class _ReviserMenuState extends State<ReviserMenu> {
       boolValidable = true;
     }
 
-    // TODO
-
     // Bouton "Valider"
     BoutonGros boutonValider =
         BoutonGros(text: "Valider", action: boolValidable ? lancer : null);
 
-    return SafeArea(
-        child: Padding(
+    return Padding(
       padding: paddingGeneral,
-      child: ListView(shrinkWrap: true, children: [
-        Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
+      child: ListView(shrinkWrap: false, children: [
+              Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+
+              children: [
               ...toShow,
               Padding(
                 padding: paddingGeneral,
                 child: boutonValider,
-              )
-            ])
+              )])
+            
       ]),
-    ));
+    );
   }
 
   void lancer() {
