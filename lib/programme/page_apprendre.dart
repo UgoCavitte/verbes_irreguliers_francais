@@ -130,6 +130,7 @@ class _PageApprendreState extends State<PageApprendre> {
                           MaterialPageRoute(
                               builder: (context) => const HomePage(
                                     index: 3,
+                                    skipLoading: true,
                                   )),
                           (Route<dynamic> route) => false),
                       child: Text(

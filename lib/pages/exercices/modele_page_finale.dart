@@ -57,6 +57,7 @@ class _ModelePageFinaleState extends State<ModelePageFinale> {
                       MaterialPageRoute(
                           builder: (context) => const HomePage(
                                 index: 0,
+                                skipLoading: true,
                               ))),
                 ),
               ),
@@ -96,6 +97,7 @@ class _ModelePageFinaleState extends State<ModelePageFinale> {
                                     MaterialPageRoute(
                                         builder: (context) => const HomePage(
                                               index: 0,
+                                              skipLoading: true,
                                             ))))),
                       ],
                     ),

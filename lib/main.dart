@@ -46,6 +46,7 @@ void main() async {
     home: introFaite
         ? const HomePage(
             index: 0,
+            skipLoading: false,
           )
         : const OnBoardingPage(),
     debugShowCheckedModeBanner: false,
@@ -73,6 +74,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       MaterialPageRoute(
           builder: (_) => const HomePage(
                 index: 0,
+                skipLoading: false,
               )),
     );
   }
@@ -141,8 +143,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 class HomePage extends StatefulWidget {
   // This widget is the root of your application.
   final int index;
+  final bool skipLoading;
 
-  const HomePage({super.key, required this.index});
+  const HomePage({super.key, required this.index, required this.skipLoading});
 
   @override
   State<StatefulWidget> createState() => _HomePageState();
@@ -167,7 +170,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();    
     _selectedIndex = widget.index;
     _pageController = PageController(initialPage: _selectedIndex);
-    _initializeAllData();
+    if (!widget.skipLoading) _initializeAllData();
   }
 
   @override
@@ -220,7 +223,7 @@ class _HomePageState extends State<HomePage> {
     context.watch<ProviderPolice>();
 
     // Check loading state and display correct loading screen
-    if (_loadingState != AppLoadingState.initialized) {
+    if (_loadingState != AppLoadingState.initialized && !widget.skipLoading) {
       if (_loadingState == AppLoadingState.boutiqueLoading) {
         return LoadingLancement.screen(EtapeLancement.boutique);
       } else if (_loadingState == AppLoadingState.dataLoading) {

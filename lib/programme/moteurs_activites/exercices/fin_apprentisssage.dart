@@ -42,6 +42,7 @@ class FinApprentissage extends Column {
                             MaterialPageRoute(
                                 builder: (context) => const HomePage(
                                       index: 1,
+                                      skipLoading: true,
                                     )),
                             (Route<dynamic> route) => false);
                       }))

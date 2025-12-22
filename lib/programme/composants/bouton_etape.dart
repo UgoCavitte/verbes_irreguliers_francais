@@ -70,6 +70,7 @@ class _BoutonEtapeState extends State<BoutonEtape> {
             MaterialPageRoute(
                 builder: (context) => const HomePage(
                       index: 3,
+                      skipLoading: true,
                     )),
             (Route<dynamic> route) => false);
       }
